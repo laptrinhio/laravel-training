@@ -1,0 +1,37 @@
+body {
+	background-color: #eaeaea;
+	
+}
+
+#masthead {
+	background-image: url(../img/header.jpg);
+	background-size: cover;
+	min-height: 400px;
+	color: #fff;
+	text-align: center;
+	padding-top: 150px;
+	padding-bottom: 100px;
+}
+
+#masthead img {
+	width: 150px;
+	border: solid 2px #fff;
+}
+
+#section-about {
+	margin-top: 150px;
+	margin-bottom: 150px;
+}
+
+footer {
+	background-color: #26223d;
+	color: #fff;
+	text-align: center;
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
+
+footer a.btn:hover {
+	text-decoration: none;
+	color: #fff;
+}
