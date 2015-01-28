@@ -7,7 +7,10 @@
 @section('content')
 
 <h1>Danh sach blog</h1>
-<hr>
+
+<p>
+	<a href="{{ URL::route('blog.create') }}" class="btn-link btn">+ Create new blog</a>
+</p>
 
 <ul>
 	@foreach($blogs as $blog)

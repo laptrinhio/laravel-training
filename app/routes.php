@@ -26,7 +26,15 @@ Route::get('/blog/{id}', [
 	'uses' => 'BlogController@getBlog'
 ]);
 
+Route::get('/blogs/create', [
+	'as'   => 'blog.create',
+	'uses' => 'BlogController@create'
+]);
 
+Route::post('/blogs/create', [
+	'as' => 'blog.create.post',
+	'uses' => 'BlogController@store'
+]);
 
 
 

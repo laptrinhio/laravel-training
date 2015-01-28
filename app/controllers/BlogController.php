@@ -14,4 +14,23 @@ class BlogController extends \BaseController {
 		return View::make('pages.blogid')->with('blog', $blog);
 	}
 
+	public function create()
+	{
+		return View::make('pages.create');
+	}
+
+	public function store()
+	{
+		$blog = Blog::create([
+			'title' => Input::get('title'),
+			'content' => Input::get('content')
+		]);
+
+		if(!$blog) {
+			return Redirect::back()->withMessage('Error creating new blog');
+		}
+
+		return Redirect::route('blog.list');
+	}
+
 }
