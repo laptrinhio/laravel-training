@@ -36,6 +36,10 @@ Route::post('/blogs/create', [
 	'uses' => 'BlogController@store'
 ]);
 
+Route::delete('/blogs/delete/{id}', [
+	'as' => 'blog.delete',
+	'uses' => 'BlogController@delete'
+]);
 
 
 

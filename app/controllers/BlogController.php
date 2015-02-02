@@ -33,4 +33,13 @@ class BlogController extends \BaseController {
 		return Redirect::route('blog.list');
 	}
 
+	public function delete($id)
+	{
+		$blog = Blog::find($id);
+
+		$blog->delete();
+
+		return Redirect::route('blog.list');
+	}
+
 }

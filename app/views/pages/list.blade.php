@@ -6,18 +6,36 @@
 
 @section('content')
 
-<h1>Danh sach blog</h1>
+<div class="container">
+	<h1>Blog Listings</h1>
 
-<p>
-	<a href="{{ URL::route('blog.create') }}" class="btn-link btn">+ Create new blog</a>
-</p>
+	<a href="{{ URL::route('blog.create') }}" class="btn-link btn text-right">+ Create new blog</a>
+</div>
 
-<ul>
-	@foreach($blogs as $blog)
-	<li>
-		<a href="/blog/{{ $blog->id }}"> {{ $blog->title }} </a>
-	</li>
-	@endforeach
-</ul>
+<div class="container">
+	
+	<ul class="list-group">
+		@foreach($blogs as $blog)
+		<li class="list-group-item">
+			<div class="row">
+				<div class="col-md-6"><a href="/blog/{{ $blog->id }}"> {{ $blog->title }} </a></div>
+				<div class="col-md-6 text-right">
+					<a href="#" class="btn btn-info">Edit</a>
+
+					{{  Form::open([
+							'route' => [ 'blog.delete', $blog->id ],
+							'method' => 'DELETE'
+						]) 
+					}}
+						{{ Form::submit('Delete', ['class' => 'btn btn-danger'])}}
+					{{ Form::close() }}
+				</div>
+			</div>
+			
+		</li>
+		@endforeach
+	</ul>
+
+</div>
 
 @stop
