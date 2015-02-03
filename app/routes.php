@@ -41,6 +41,16 @@ Route::delete('/blogs/delete/{id}', [
 	'uses' => 'BlogController@delete'
 ]);
 
+Route::get('/blog/edit/{id}', [
+	'as' => 'blog.edit',
+	'uses' => 'BlogController@edit'
+]);
+
+Route::put('/blog/edit/{id}', [
+	'as' => 'blog.edit.update',
+	'uses' => 'BlogController@update'
+]);
+
 
 
 

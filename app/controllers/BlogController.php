@@ -42,4 +42,23 @@ class BlogController extends \BaseController {
 		return Redirect::route('blog.list');
 	}
 
+	public function edit($id)
+	{
+		$blog = Blog::find($id);
+
+		return View::make('pages.edit')->with('blog', $blog);
+	}
+
+	public function update($id)
+	{
+		$blog = Blog::find($id);
+
+		$blog->title = Input::get('title');
+		$blog->content = Input::get('content');
+
+		$blog->save();
+
+		return Redirect::route('blog.list');
+	}
+
 }

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('head-title')
-	Tao blog moi
+	Thay doi noi dung blog
 @stop
 
 @section('content')
@@ -18,26 +18,30 @@
 		<div class="panel-heading">
 			<div class="panel-title">
 				<h2>
-					<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-					Tạo blog mới
+					<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+					Cập nhật nội dung
 				</h2>
 			</div>
 		</div>
 
 		<div class="panel-body">
-			{{ Form::open(['url' => '/blogs/create', 'method' => 'POST']) }}
+			{{  Form::open([
+					'route' => [ 'blog.edit.update', $blog->id ], 
+					'method' => 'PUT'
+			 	]) 
+			}}
 				
 				<div class="form-group">
 				{{ Form::label('title', 'Tiêu đề', ['id' => '', 'class' => '']) }}
-				{{ Form::text('title', '', ['id' => '', 'class' => 'form-control']) }}
+				{{ Form::text('title', $blog->title, ['id' => '', 'class' => 'form-control']) }}
 				</div>
-
+				
 				<div class="form-group">
 				{{ Form::label('content', 'Nội dung', ['id' => '', 'class' => '']) }}
-				{{ Form::textarea('content', '', ['id' => '', 'class' => 'form-control']) }}
+				{{ Form::textarea('content', $blog->content, ['id' => '', 'class' => 'form-control']) }}
 				</div>
 
-				{{ Form::submit('Create', ['class' => 'btn btn-danger']) }}
+				{{ Form::submit('Cập nhật', [ 'class' => 'btn btn-danger']) }}
 
 			{{ Form::close() }}
 		</div>

@@ -35,3 +35,8 @@ footer a.btn:hover {
 	text-decoration: none;
 	color: #fff;
 }
+
+
+form.action-delete {
+	display: inline-block;
+}

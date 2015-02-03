@@ -20,12 +20,13 @@
 			<div class="row">
 				<div class="col-md-6"><a href="/blog/{{ $blog->id }}"> {{ $blog->title }} </a></div>
 				<div class="col-md-6 text-right">
-					<a href="#" class="btn btn-info">Edit</a>
+					<a href="/blog/edit/{{ $blog->id }}" class="btn btn-info">Edit</a>
 
 					{{  Form::open([
 							'route' => [ 'blog.delete', $blog->id ],
-							'method' => 'DELETE'
-						]) 
+							'method' => 'DELETE',
+							'class' => 'action-delete'
+						] ) 
 					}}
 						{{ Form::submit('Delete', ['class' => 'btn btn-danger'])}}
 					{{ Form::close() }}
